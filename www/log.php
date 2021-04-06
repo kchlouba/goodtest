@@ -72,9 +72,9 @@ function checkServer(data=null) {
 }
   
 
-  $.ajax('http://nette/', req).done(function( data ) {
+  $.ajax('/', req).done(function( data ) {
    console.log(data);
-   if (data.status!='fucked') {
+   if (data.status!='blocked') {
      $('#loginform').hide(); 
      $('#userview').show();
      
@@ -82,7 +82,7 @@ function checkServer(data=null) {
         let pgbtn = $('<button class="primary" data-page="'+i+'" id="b'+i+'">'+i+'</button>')
         pgbtn.click(function(e) {
         let page=$(this).data('page')
-        $.ajax('http://nette/?page='+page, req).done(function( data ) { 
+        $.ajax('/?page='+page, req).done(function( data ) { 
           rr(data);
         })
         ipage = page;
@@ -93,14 +93,14 @@ function checkServer(data=null) {
 
       $('#plus').click(function(e) {
           ipage=ipage+1;
-          $.ajax('http://nette/?page='+ipage, req).done(function( data ) { 
+          $.ajax('/?page='+ipage, req).done(function( data ) { 
           rr(data);
         })
         })
 
       $('#minus').click(function(e) {
           ipage=ipage-1;
-          $.ajax('http://nette/?page='+ipage, req).done(function( data ) { 
+          $.ajax('/?page='+ipage, req).done(function( data ) { 
           rr(data);
         })
         }) 

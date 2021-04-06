@@ -10,10 +10,9 @@ use \Firebase\JWT\JWT;
 
 
 
-
 final class HomepagePresenter extends Nette\Application\UI\Presenter
 {
-    private Nette\Database\Explorer $database;
+    private $database;
     private $jwt;
     private $key = "zabiprinc";
 
@@ -86,7 +85,8 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
 
             }
         } else {
-            $this->sendJson(['status'=>'fucked', 'data'=>'nemate pristup']);
+            $this->sendJson(['status'=>'blocked', 'data'=>'nemate pristup']);
+
         }
 
 
